@@ -464,8 +464,11 @@ function isInteger(number) {
  * 'abcdefgh'      => NaN
  */
 function getFloatOnString(str) {
-  const result = parseFloat(str);
-  return Number.isNaN(result) ? NaN : result;
+  const parsedFloat = Number.parseFloat(str);
+  if (Number.isNaN(parsedFloat)) {
+    return NaN;
+  }
+  return parsedFloat;
 }
 
 /**
@@ -483,8 +486,11 @@ function getFloatOnString(str) {
  * '10', 8              => 8
  */
 function getIntegerOnString(str, base) {
-  const result = parseInt(str, base);
-  return Number.isNaN(result) ? NaN : result;
+  const parsedInt = Number.parseInt(str, base);
+  if (Number.isNaN(parsedInt)) {
+    return NaN;
+  }
+  return parsedInt;
 }
 
 /**
